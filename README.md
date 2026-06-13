@@ -1,59 +1,93 @@
 # WorkSkill Safe
 
-> Privacy-first CLI for turning work notes into reusable Agent Skills without publishing confidential data.
+[繁體中文](docs/zh-TW/PROJECT_OVERVIEW.md) | English
 
-## Status
+> Privacy-first, local-first CLI for turning work notes into reusable Agent Skills without publishing confidential data.
 
-Bootstrap specification stage. The repository is being prepared for Codex implementation.
+## Why this project exists
 
-## Problem
+Knowledge workers often want to preserve repeatable methods from meeting notes, project logs, and proposal work. Those sources can contain employer information, client identifiers, personal data, internal URLs, authentication material, or context that should never be published.
 
-Operational knowledge is often buried in work logs, meeting notes, and project records. These sources may contain company-confidential information, client identifiers, personal data, internal URLs, credentials, or context that should never be published.
-
-WorkSkill Safe will provide a local-first, deterministic and reviewable workflow:
+WorkSkill Safe provides a deterministic and reviewable local workflow:
 
 ```text
 private note
     ↓
 scan
     ↓
-sanitize + audit report
+sanitize + masked audit report
     ↓
-human approval
+human review
     ↓
 Agent Skill scaffold
     ↓
 validate
 ```
 
-## Planned core commands
+## Status
+
+Early MVP. The tool reduces obvious disclosure risks but does not guarantee anonymization, regulatory compliance, or prevention of contextual re-identification.
+
+## Core commands
 
 ```bash
 workskill-safe scan INPUT
 workskill-safe sanitize INPUT --output OUTPUT
-workskill-safe scaffold INPUT --output DIR
+workskill-safe scaffold INPUT --output DIR --reviewed
 workskill-safe validate SKILL_DIR
 workskill-safe demo
 ```
 
+## Quick start
+
+```bash
+python -m pip install -e ".[dev]"
+workskill-safe demo
+python -m pytest
+```
+
 ## Design principles
 
-- Local-first
-- No external model or API required for core commands
-- Fail closed
-- Deterministic privacy rules
-- Human review before publication
-- Synthetic examples only in the public repository
-- Auditable transformations
+- local-first and offline core behavior
+- deterministic privacy rules
+- fail closed when configuration or safety is uncertain
+- no external model or service required
+- no raw work data in the public repository
+- synthetic public examples only
+- human review before publication
+- auditable transformations without exposing full secret values
 
-## Important limitation
+## Public repository boundary
 
-This project will not guarantee anonymization, regulatory compliance, or prevention of every disclosure. Contextual re-identification remains possible, so generated output always requires human review.
+Allowed:
 
-## Current handoff
+- source code
+- public documentation
+- generic rules
+- fully synthetic fixtures
+- aggregate, non-identifying maintenance evidence
 
-Codex should read `AGENTS.md`, `PRIVACY.md`, `docs/PROJECT_SPEC.md`, `docs/THREAT_MODEL.md`, and `CODEX_HANDOFF.md` before implementation.
+Prohibited:
+
+- real employer or client documents
+- raw meeting notes or work logs
+- personal data
+- pricing, contracts, internal KPIs, or unpublished strategy
+- private URLs or file paths
+- authentication material or local configuration secrets
+
+Read `PRIVACY.md` and `docs/THREAT_MODEL.md` before using the project.
+
+## Documentation
+
+- Traditional Chinese overview: `docs/zh-TW/PROJECT_OVERVIEW.md`
+- Traditional Chinese privacy guide: `docs/zh-TW/PRIVACY_GUIDE.md`
+- Project specification: `docs/PROJECT_SPEC.md`
+- Architecture: `docs/ARCHITECTURE.md`
+- Threat model: `docs/THREAT_MODEL.md`
+- Pilot plan: `docs/PILOT_PLAN.md`
+- Codex handoff: `CODEX_HANDOFF.md`
 
 ## License
 
-MIT license will be added during repository bootstrap.
+MIT

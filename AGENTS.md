@@ -4,6 +4,8 @@
 
 Maintain WorkSkill Safe as a small, local-first, privacy-first CLI that converts sanitized work knowledge into reusable Agent Skill drafts.
 
+Traditional Chinese maintainer guidance is available in `docs/zh-TW/MAINTAINER_GUIDE.md`.
+
 ## Priority order
 
 1. Privacy and security
@@ -34,28 +36,9 @@ python -m pytest
 ruff check .
 mypy src
 workskill-safe demo
+python -m build
 ```
-
-## Repository conventions
-
-- Python 3.11+
-- `src/` layout
-- Type hints on public functions
-- Small pure functions where possible
-- Deterministic tests
-- Structured error messages
-- No hidden network calls
-- Public documentation in English
-- Conventional Commit style preferred
 
 ## Definition of done
 
-A change is done only when:
-
-- tests pass
-- lint and type checks pass
-- privacy regression tests pass
-- documentation matches actual CLI behavior
-- no sensitive fixture is introduced
-- CHANGELOG is updated for user-visible behavior changes
-- PR explains risk, verification, and privacy impact
+A change is done only when tests, lint, type checks, privacy regression tests, documentation, and privacy review all pass.

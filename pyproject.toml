@@ -1,0 +1,47 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "workskill-safe"
+version = "0.1.0"
+description = "Privacy-first local CLI for turning work notes into reusable Agent Skills"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+authors = [{name = "WorkSkill Safe contributors"}]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+dev = ["build>=1.2", "mypy>=1.10", "pytest>=8.0", "ruff>=0.6", "types-PyYAML>=6.0"]
+
+[project.scripts]
+workskill-safe = "workskill_safe.cli:entrypoint"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+include-package-data = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+workskill_safe = ["rules/*.yml"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+
+[tool.mypy]
+python_version = "3.11"
+check_untyped_defs = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+ignore_missing_imports = true

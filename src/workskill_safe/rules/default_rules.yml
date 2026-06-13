@@ -1,0 +1,49 @@
+rules:
+  - id: sensitive-assignment
+    category: secret
+    severity: critical
+    pattern: '\bAUTH_MATERIAL\s*[:=]\s*[A-Za-z0-9_\-]{8,}'
+    replacement: '[SECRET_REMOVED]'
+    message: 'High-risk authentication marker detected.'
+
+  - id: pii-email
+    category: email
+    severity: high
+    pattern: '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b'
+    replacement: '[EMAIL_REMOVED]'
+    message: 'Email address detected.'
+
+  - id: pii-phone
+    category: phone
+    severity: high
+    pattern: '(?<!\w)(?:\+?\d[\d() .-]{7,}\d)(?!\w)'
+    replacement: '[PHONE_REMOVED]'
+    message: 'Phone-like value detected.'
+
+  - id: private-url
+    category: url
+    severity: high
+    pattern: 'https?://[^\s)\]>]+'
+    replacement: '[LINK_REMOVED]'
+    message: 'URL detected.'
+
+  - id: private-windows-path
+    category: path
+    severity: high
+    pattern: '\b[A-Za-z]:\\(?:[^\\\r\n]+\\)*[^\\\r\n]*'
+    replacement: '[PATH_REMOVED]'
+    message: 'Absolute Windows path detected.'
+
+  - id: private-unix-path
+    category: path
+    severity: high
+    pattern: '(?<![\w.])/(?:home|Users|private|var|opt|srv)/[^\s]+'
+    replacement: '[PATH_REMOVED]'
+    message: 'Absolute Unix path detected.'
+
+  - id: confidentiality-marker
+    category: confidentiality
+    severity: high
+    pattern: '\b(?:CONFIDENTIAL|INTERNAL ONLY|DO NOT DISTRIBUTE)\b'
+    replacement: '[CONFIDENTIAL_MARKER_REMOVED]'
+    message: 'Confidentiality marker requires manual review.'
