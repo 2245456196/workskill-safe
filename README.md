@@ -82,6 +82,7 @@ Read `PRIVACY.md` and `docs/THREAT_MODEL.md` before using the project.
 
 - Traditional Chinese overview: `docs/zh-TW/PROJECT_OVERVIEW.md`
 - Traditional Chinese privacy guide: `docs/zh-TW/PRIVACY_GUIDE.md`
+- Traditional Chinese Pilot guide: `docs/zh-TW/PILOT_GUIDE.md`
 - Project specification: `docs/PROJECT_SPEC.md`
 - Architecture: `docs/ARCHITECTURE.md`
 - Threat model: `docs/THREAT_MODEL.md`
