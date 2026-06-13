@@ -47,6 +47,8 @@ Do not use on unreviewed source material. Do not invent evidence, adoption, pric
 
 ## Output contract
 
+Follow `references/output-schema.md`. The output must include:
+
 1. Executive decision summary
 2. Stakeholder and pain-point matrix
 3. Proposed service and technical scope
@@ -56,7 +58,8 @@ Do not use on unreviewed source material. Do not invent evidence, adoption, pric
 7. Reviewer objection and response table
 8. Slide-page outline
 9. Missing information and risks
-10. Publication checklist
+10. Action list
+11. Publication checklist
 
 ## Evidence rules
 
@@ -70,6 +73,7 @@ Do not use on unreviewed source material. Do not invent evidence, adoption, pric
 - Use only reviewed source material.
 - Remove organization, customer, person, project, date, value, URL, and path identifiers.
 - Generalize unique combinations that could reveal the source context.
+- Complete `docs/CONTEXTUAL_REIDENTIFICATION_CHECKLIST.md` before publication.
 - Stop when authorization or publication status is uncertain.
 - Require human review before public use.
 
@@ -82,5 +86,6 @@ Do not use on unreviewed source material. Do not invent evidence, adoption, pric
 - [ ] Every material claim has evidence status.
 - [ ] Reviewer questions change the structure, not only wording.
 - [ ] Each slide communicates one core judgment.
-- [ ] No identifying context remains.
+- [ ] The action list is present.
+- [ ] Contextual re-identification review is complete.
 - [ ] The workflow succeeds on a second synthetic case.
