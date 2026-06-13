@@ -29,8 +29,8 @@ Use Codex only for targeted work after reviewing a specific Issue or failed chec
 - Synthetic fixtures only.
 - No external model or service in core commands.
 - No telemetry or cloud processing.
-- Do not publish a Release.
-- Do not submit the OpenAI application.
+- Do not publish a Release without explicit maintainer approval.
+- Do not submit external forms or make public announcements.
 - Do not make broad rewrites when a targeted fix is sufficient.
 
 ## Required report
