@@ -1,0 +1,24 @@
+name: Publish v0.1.0
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v0.1.0
+          name: v0.1.0
+          generate_release_notes: true
+          target_commitish: main
